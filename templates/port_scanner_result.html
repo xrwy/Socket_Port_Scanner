@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Port Scanner Result</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/page.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">Port Scanner Result</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="wrap">
+                            <div class="img" style="background-image:url('./static/img/beach.jpg')">
+                            </div>
+                            <div class="login-wrap p-4 p-md-5">
+                                <div class="d-flex">
+                                    <div class="w-100">
+                                        <div class="">
+                                            <div class="col-md-6" style="overflow-y:auto;height: 500px;">
+                                                <table class="table table-border">
+                                                    <thead>
+                                                    <tr>
+                                                        <th style="text-align: center;">Open Ports</th>
+                                                        <th style="text-align: center;">Occurrence Time</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% if openPorts == '' %}
+                                                            <tr>
+                                                                <td>
+                                                                    <b>
+                                                                        Open Port Not Found.
+                                                                    </b>
+                                                                </td>
+                                                            </tr>
+                                                        {% else %}
+                                                            {% for openPort in openPorts %}
+                                                                <tr>
+                                                                    <td>
+                                                                        <b style="text-transform:lowercase !important;">{{openPort[0]}} <br/>
+                                                                    </td>
+                                                                    <td>
+                                                                        <b style="text-transform:lowercase !important;">{{openPort[1]}} <br/>
+                                                                    </td>
+                                                                </tr>
+                                                            {%endfor%}
+                                                        {% endif %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6" style="overflow-y:auto;height: 500px;">
+                                                <table class="table table-border">
+                                                    <thead>
+                                                    <tr>
+                                                        <th style="text-align: center;">Closed Ports</th>
+                                                        <th style="text-align: center;">Occurrence Time</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% if closePorts == '' %}
+                                                            <tr>
+                                                                <td>
+                                                                    <b style="text-transform:lowercase !important;">
+                                                                        None
+                                                                    </b>
+                                                                </td>
+                                                            </tr>
+                                                        {% else %}
+                                                            {% for closedPort in closedPorts %}
+                                                                <tr>
+                                                                    <td>
+                                                                        <b style="text-transform:lowercase !important;">{{closedPort[0]}} <br/>
+                                                                    </td>
+                                                                    <td>
+                                                                        <b style="text-transform:lowercase !important;">{{closedPort[1]}} <br/>
+                                                                    </td>
+                                                                </tr>
+                                                            {%endfor%}
+                                                        {% endif %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

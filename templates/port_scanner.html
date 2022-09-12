@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Port Scanner</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/page.css')}}">
+</head>
+<body>
+    <div class="">
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">Port Scanner</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-10">
+                        <div class="wrap">
+                            <div class="img" style="background-image:url('./static/img/beach.jpg')">
+                            </div>
+                            <div class="login-wrap p-4 p-md-5">
+                                <div class="d-flex">
+                                    <div class="w-100">
+                                        <h3 class="mb-4" style="font-size:22px">Port Scanner</h3>
+                                    </div>
+                                </div>
+                                <form method="post" action="/port_scanner_result" class="signin-form">
+                                    <label style="text-transform:lowercase;">Example => xyz.com</label>
+                                    <div class="form-group mt-3">
+                                        <input type="text" class="form-control" required="true" name="address">
+                                        <label class="form-control-placeholder" for="address">IP Address or Domain Name</label>
+                                    </div>
+                                    <label style="text-align: left !important; display:block;font-size: 17px !important;text-transform:lowercase !important;">For Example : (<b>1-365, 50-1000</b>)</label>
+                                    <div class="form-group" style="margin-top: 5px;">
+                                        <input type="text" class="form-control" required="true" name="port_range">
+                                        <label class="form-control-placeholder" for="ip" >Port Range</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="form-control btn btn-primary rounded submit px-4" style="font-size: 17px;">
+                                            Start Port Scanner
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
